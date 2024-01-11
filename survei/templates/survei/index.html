@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Pemilu 2024</title>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <main>
+        {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+            <li><a href="{% url 'survei:detail' question.id %}">{{question.question_text}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>Tidak ada pertanyaan yang tersedia</p>
+        {% endif %}
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
